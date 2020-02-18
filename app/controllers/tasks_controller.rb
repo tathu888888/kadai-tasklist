@@ -33,10 +33,10 @@ class TasksController < ApplicationController
     set_task
 
     if @task.update(task_params)
-      flash[:success] = 'Message は正常に更新されました'
+      flash[:success] = 'タスク は正常に更新されました'
       redirect_to @task
     else
-      flash.now[:danger] = 'Message は更新されませんでした'
+      flash.now[:danger] = 'タスク は更新されませんでした'
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
     set_task
     @task.destroy
 
-    flash[:success] = 'Message は正常に削除されました'
+    flash[:success] = 'タスク は正常に削除されました'
     redirect_to tasks_url
   end
 
