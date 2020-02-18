@@ -16,7 +16,7 @@ class TasksController < ApplicationController
      
      if @task.save
         flash[:success] = 'Message が正常に投稿されました。'
-        redirect_to @message_params
+        redirect_to @task
         
      else
          flash.now[:danger] = 'Messageが投稿されませんでした。'
@@ -32,9 +32,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    if @message.update(message_params)
+    if @task.update(task_params)
       flash[:success] = 'Message は正常に更新されました'
-      redirect_to @message
+      redirect_to @task
     else
       flash.now[:danger] = 'Message は更新されませんでした'
       render :edit
