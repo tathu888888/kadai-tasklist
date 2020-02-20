@@ -1,10 +1,10 @@
-<%= form_with(model: task, local: true) do |f| %>
-  <% if task.errors.any? %>
+<%= form_with(model: message, local: true) do |f| %>
+  <% if message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
-        <% task.errors.full_taskss.each do |msg| %>
+        <% message.errors.full_message.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -12,7 +12,7 @@
   <% end %>
 
 
- <%= f.label :title, '状態' %>
+ <%= f.label :status, '状態' %>
   <%= f.text_field :status %>
   <%= f.label :content, 'タスク' %>
   <%= f.text_field :content %>
