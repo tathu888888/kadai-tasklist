@@ -1,0 +1,21 @@
+<ul class="list-unstyled">
+  <% task_posts.each do |task_post| %>
+    <li class="media mb-3">
+      <div class="media-body">
+        <div>
+          <%= link_to task_post.user.name, task_post_path(task_post) %> <span class="text-muted">posted at <%= task_post.created_at %></span>
+        </div>
+        <div>
+          <p><%= task_post.content %></p>
+        </div>
+        <div>
+                  <% if current_user == task_post.user %>
+            <%= link_to "Edit", edit_task_post_path(task_post),   class: 'btn btn-danger btn-sm' %>
+            <%= link_to "Delete", task_post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate task_posts %>
+</ul>

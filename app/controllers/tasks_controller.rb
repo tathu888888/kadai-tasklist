@@ -2,7 +2,10 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-      @tasks = Task.all
+        if logged_in?
+      @task_post = current_user.task_posts.build  # form_with 用
+      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page])
+        end
   end
 
   def show
@@ -65,9 +68,9 @@ class TasksController < ApplicationController
   end
   
   
+
+
+  
+  
+
 end
-
-  
-  
-
-

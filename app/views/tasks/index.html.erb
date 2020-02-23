@@ -1,30 +1,63 @@
 <% if logged_in? %>
+    <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @task_post, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+
+      <%= render 'task_post/microposts', task_posts: @task_posts %>
+   </div>
+  </div>
 
 
 
 
-<h1>タスク一覧</h1>
+<!--<h1>タスク一覧</h1>-->
 
 
 
 
-<ul>
-  <% @tasks.each do |task| %>
-        <li><%= link_to task.id, task %> : <%= task.status %> &gt;   <%= task.content %></li>
-
-  <% end %>
-</ul>
 
 
-<%= link_to '新規タスクの投稿', new_task_path %>
+<!--<%= link_to '新規タスクの投稿', new_task_path %>-->
 
-              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+              <li class="dropdown-item"><%= link_to 'Logout', logout_path , method: :delete %></li>
 
 
 <% else %>
+<div class="text-center">
+  <h1>Log in</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+    <p>New user? <%= link_to 'Sign up now!',  signup_path %></p>
+  </div>
+</div>
 
 
-        <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
+        <!--<li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>-->
+        <!--<li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>-->
 
 <% end %>
