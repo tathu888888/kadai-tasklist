@@ -49,7 +49,7 @@ class TaskPostsController < ApplicationController
   private
 
   def task_post_params
-    params.require(:task_post).permit(:content)
+    params.require(:task_post).permit(:content, :status)
   end
   
     def correct_user

@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
-    before_action :set_task, only: [:show, :edit, :update, :destroy]
+    before_action :set_task, :require_user_logged_in, only: [:show, :edit, :update, :destroy]
 
   def index
         if logged_in?
       @task_post = current_user.task_posts.build  # form_with 用
-      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page])
+      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page0])
+      
         end
   end
 
@@ -13,7 +14,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+     if logged_in?
+      @task_post = current_user.task_posts.build  # form_with 用
+      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page0])
+
+        
+     end
   end
 
   def create

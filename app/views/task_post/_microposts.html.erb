@@ -6,6 +6,8 @@
           <%= link_to task_post.content, task_post_path(task_post) %> <span class="text-muted">posted at <%= task_post.created_at %></span>
         </div>
         <div>
+           <p></p>
+          <p><%= task_post.status %></p>
           <p><%= task_post.content %></p>
         </div>
         <div>

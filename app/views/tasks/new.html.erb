@@ -1,17 +1,12 @@
-<h1>タスク新規作成ページ</h1>
-
- <div class="row">
-    <aside class="col-sm-4">
-      <%= form_with(model: @task_post, local: true) do |f| %>
+<!--<h1>タスク新規作成ページ</h1>-->
+  <%= form_with(model: @task_post, local: true) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
+            <%= f.text_area :status, class: 'form-control', rows: 5 %>
+
         </div>
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
-      <% end %>
-    </aside>
-    <div class="col-sm-8">
-
-<!--<%= render 'form', task: @task %>-->
+      <% end %>    
 
 
 <!--<%= link_to '一覧に戻る', tasks_path %>-->
