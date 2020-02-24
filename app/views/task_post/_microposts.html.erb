@@ -3,7 +3,7 @@
     <li class="media mb-3">
       <div class="media-body">
         <div>
-          <%= link_to task_post.user.name, task_post_path(task_post) %> <span class="text-muted">posted at <%= task_post.created_at %></span>
+          <%= link_to task_post.content, task_post_path(task_post) %> <span class="text-muted">posted at <%= task_post.created_at %></span>
         </div>
         <div>
           <p><%= task_post.content %></p>
