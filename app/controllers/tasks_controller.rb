@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
-<<<<<<< HEAD
     before_action :require_user_logged_in, only: [:edit, :show, :index]
       before_action :current_user, only: [:destroy,:update,  ]
-        before_action :set_task, only: [ :edit, :update ,  ]
+        before_action :set_task, only: [ :edit, :update , :destroy
+        
+         ]
 
 
 
@@ -17,16 +18,6 @@ class TasksController < ApplicationController
       @task = current_user.tasks.build  # form_with 用
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
     end
-=======
-    before_action :set_task, :require_user_logged_in, only: [:show, :edit, :update, :destroy]
-
-  def index
-        if logged_in?
-      @task_post = current_user.task_posts.build  # form_with 用
-      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page0])
-      
-        end
->>>>>>> abb0becc9320e6fc48d3f2ea359f022dbdbc7ff4
   end
 
   
@@ -44,21 +35,12 @@ class TasksController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
     if logged_in?
       @task = current_user.tasks.build  # form_with 用
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
     end
 
   
-=======
-     if logged_in?
-      @task_post = current_user.task_posts.build  # form_with 用
-      @task_posts = current_user.task_posts.order(id: :desc).page(params[:page0])
-
-        
-     end
->>>>>>> abb0becc9320e6fc48d3f2ea359f022dbdbc7ff4
   end
 
   def create
@@ -121,9 +103,9 @@ class TasksController < ApplicationController
   
 
   
-
-
-  
-  
-
 end
+
+  
+  
+
+

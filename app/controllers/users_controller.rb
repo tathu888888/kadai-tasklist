@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :require_user_logged_in, only: [:index, :show]
-=======
-    before_action :require_user_logged_in, only: [:index, :show,:delete,:edit]
-
->>>>>>> abb0becc9320e6fc48d3f2ea359f022dbdbc7ff4
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
