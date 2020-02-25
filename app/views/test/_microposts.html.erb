@@ -1,8 +1,8 @@
 <ul class="list-unstyled">
-  <% tasks.each do |task| %>
-  
+    <% tasks.each do |task| %>
+
  <div>
-          <%= link_to task.content, task_path(task.user) %> 
+          <%= link_to task.content, task_path(task) %> 
         </div>
        
            <p></p>

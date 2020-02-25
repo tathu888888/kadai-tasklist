@@ -18,6 +18,8 @@ class TasksController < ApplicationController
     # @tasks = Task.all
       @task = current_user.tasks.build  # form_with 用
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
+       @task1 = current_user.tasks.find_by(id: params[:id])
+
     end
   end
 
@@ -26,11 +28,12 @@ class TasksController < ApplicationController
    
   
   def show
+        @task1 = Task.find(params[:id])
 
-      @task = current_user.tasks.build  # form_with 用
-      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
     
-  
+    @task = current_user.tasks.find_by(id: params[:id])
+
+
        
   end
 
@@ -75,7 +78,7 @@ class TasksController < ApplicationController
 
     @task.destroy
     flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
  end
 
 

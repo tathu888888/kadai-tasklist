@@ -3,12 +3,22 @@
 
 
    
+<ul class="list-unstyled">
+
+ <div>
+        </div>
+       
+           <p></p>
+          <p>状態:<%= @task1.status %></p>
+          <p>タイトル:<%= @task1.content %></p>
+          <%= link_to '一覧に戻る', tasks_path %>
+
+ <%= link_to "Edit", edit_task_path(@task),   class: 'btn btn-danger btn-sm' %>
+  <%= link_to "Delete", @task1 ,method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                      
+                      
 
 
 
-            
-            
-                <%= render 'test/microposts', tasks: @tasks %>
-
-            
-            
+    </li>
+</ul>
