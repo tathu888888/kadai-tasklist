@@ -6,5 +6,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
+<<<<<<< HEAD
   has_many :tasks
+=======
+  has_many :task_posts
+>>>>>>> abb0becc9320e6fc48d3f2ea359f022dbdbc7ff4
 end

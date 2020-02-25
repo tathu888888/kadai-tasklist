@@ -1,0 +1,13 @@
+<h1>タスク一覧</h1>
+<h3 class="card-title"><%= @task_post.content %></h3>
+<h3 class="card-title"><%= @task_post.status %></h3>
+
+
+
+
+            <%= link_to "Edit", edit_task_post_path(@task_post),   class: 'btn btn-danger btn-sm' %>
+
+<%= link_to '一覧に戻る', tasks_path %>
+            
+            
+            

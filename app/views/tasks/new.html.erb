@@ -1,5 +1,10 @@
-<h1>タスク新規作成ページ</h1>
+<!--<h1>タスク新規作成ページ</h1>-->
+  <%= form_with(model: @task_post, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+            <%= f.text_area :status, class: 'form-control', rows: 5 %>
 
+<<<<<<< HEAD
   <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
           <%= f.text_field :content, class: 'form-control', rows: 5 %>
@@ -9,6 +14,11 @@
         <%= f.submit 'POST',  class: 'btn btn-primary btn-block' %>
       <% end %>    
 
+=======
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>    
+>>>>>>> abb0becc9320e6fc48d3f2ea359f022dbdbc7ff4
 
 
-<%= link_to '一覧に戻る', tasks_path %>
+<!--<%= link_to '一覧に戻る', tasks_path %>-->
