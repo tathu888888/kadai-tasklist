@@ -1,13 +1,17 @@
-<div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
-      </div>
-      <div class="card-body">
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-      </div>
-    </div>
-  </aside>
- 
-</div>
+<h1> タスクの詳細ページ</h1>
+
+
+
+        <div>
+          <p><%= @task.status %></p>
+          <p><%= @task.content %></p>
+        </div>
+
+
+
+
+<%= link_to '一覧に戻る', tasks_path %>
+<%= link_to 'このタスクを編集する', edit_task_path(@task) %>
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+            <%= link_to "Delete",  method: :destroy, data: { confirm: "You sure?" } %>
+            

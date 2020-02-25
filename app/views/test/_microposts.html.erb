@@ -1,0 +1,31 @@
+<ul class="list-unstyled">
+  <% tasks.each do |task| %>
+  
+ <div>
+          <%= link_to task.content, task_path(task.user) %> 
+        </div>
+       
+           <p></p>
+          <p>状態:<%= task.status %></p>
+          <p>タイトル:<%= task.content %></p>
+          <%= link_to '一覧に戻る', tasks_path %>
+
+                       <%= link_to "Edit", edit_task_path(task),   class: 'btn btn-danger btn-sm' %>
+
+                      <%= link_to "Delete", task,method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+
+    </li>
+  <% end %>
+  <%= paginate tasks %>
+</ul>
+
+
+
+
+
+
+
+
+
+
+

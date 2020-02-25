@@ -19,19 +19,24 @@
 
 
 
-<ul>
-
-  <% @tasks.each do |task| %>
-
-        <li><%= link_to task.id, task %> : <%= task.status %> &gt;   <%= task.content %></li>
 
 
 
-  <% end %>
+<!--<ul>-->
 
-</ul>
+<!--  <% @tasks.each do |task| %>-->
+
+<!--        <li><%= link_to task.user, task %> : <%= task.status %> &gt;   <%= task.content %></li>-->
 
 
+
+<!--  <% end %>-->
+
+<!--</ul>-->
+
+
+
+      <%= render 'test/microposts', tasks: @tasks %>
 
 
 
