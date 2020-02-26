@@ -1,9 +1,8 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
-      before_action :currect_user, only: [:destroy,:update,  ]
-        before_action :set_task, only: [ :edit, :update , :destroy
-        
-         ]
+      before_action :currect_user, only: [:destroy,:update,:edit,:show]
+        before_action :set_task, only: [ :edit, :update , :destroy]
+
 
 
 
@@ -19,11 +18,14 @@ class TasksController < ApplicationController
       @task = current_user.tasks.build  # form_with 用
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
        @task1 = current_user.tasks.find_by(id: params[:id])
+       
+
+
 
     end
   end
 
-  
+
 
    
   
@@ -32,6 +34,12 @@ class TasksController < ApplicationController
 
     
     @task = current_user.tasks.find_by(id: params[:id])
+    
+
+    
+    
+
+
 
 
        
@@ -93,7 +101,7 @@ class TasksController < ApplicationController
   end
   
   def task_params
-    params.require(:task).permit(:content, :status,:user)
+    params.require(:task).permit(:content, :status,:user_id)
   end
   
   def set_task
@@ -102,6 +110,9 @@ class TasksController < ApplicationController
 
 
   end
+  
+  
+
   
 
   
