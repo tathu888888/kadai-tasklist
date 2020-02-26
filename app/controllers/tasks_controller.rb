@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
       before_action :currect_user, only: [:destroy,:update,:edit,:show]
-        before_action :set_task, only: [ :edit, :update , :destroy]
+        # before_action :set_task, only: [ :edit, :update , :destroy]
 
 
 
@@ -12,7 +12,6 @@ class TasksController < ApplicationController
     # before_action :only: [:show, :edit, :update, :destroy ,:index]
 
   def index
-    if logged_in?
 
     # @tasks = Task.all
       @task = current_user.tasks.build  # form_with 用
@@ -22,7 +21,7 @@ class TasksController < ApplicationController
 
 
 
-    end
+    
   end
 
 
