@@ -2,7 +2,11 @@
 
   <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
-          <%= f.text_field :content, class: 'form-control', rows: 5 %>
+            <%= f.label :content, 'タスク' %>
+
+           <%= f.text_field :content, class: 'form-control', rows: 5 %>
+          <%= f.label :status, '状態' %>
+
             <%= f.text_field :status, class: 'form-control', rows: 5 %>
 
         </div>
